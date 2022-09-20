@@ -32,7 +32,6 @@ namespace API.Controllers
         [Route("{username}")]
         public async Task<ActionResult<MembersDto>> GetUser([FromRoute] string username)
         {
-
             return await _userRepository.GetMembersByUsernameAsync(username);
         }
     }

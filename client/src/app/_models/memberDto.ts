@@ -1,8 +1,8 @@
-﻿import { PhotoDto } from "./PhotoDto";
+﻿import { PhotoDto } from "./photoDto";
 
-export interface MembersDto {
+export interface MemberDto {
   id: string;
-  userName: string;
+  username: string;
   photoUrl: string;
   age: number;
   knowAs: string;

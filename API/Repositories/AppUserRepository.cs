@@ -48,7 +48,7 @@ namespace API.Repositories
             return await _context.Users
                 .Include(p => p.Photos)
                 .ProjectTo<MembersDto>(_mapper.ConfigurationProvider)
-                .SingleOrDefaultAsync(x=> x.UserName == username);
+                .SingleOrDefaultAsync(x=> x.Username == username);
         }
     }
 }

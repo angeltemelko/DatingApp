@@ -22,7 +22,7 @@ namespace API.Data
             foreach (var appUser in appUsers)
             {
                 using var hmac = new HMACSHA512();
-                appUser.UserName = appUser.UserName;
+                appUser.Username = appUser.Username;
                 appUser.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("Pa$$w0rd"));
                 appUser.PasswordSalt = hmac.Key;
                 

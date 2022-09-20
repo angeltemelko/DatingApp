@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { Observable, ReplaySubject } from 'rxjs';
 import { User } from '../_models/user';
 import { map } from 'rxjs/operators'
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
-  baseUrl = 'https://localhost:5001/api/';
+  baseUrl = environment.apiUrl;
   public curentUserSource = new ReplaySubject<User | null>(1);
   currentUser$ = this.curentUserSource.asObservable();
 
@@ -31,7 +32,7 @@ export class AccountService {
   }
 
   register(model: any) {
-    return this.http.post<User>(this.baseUrl + '', model).pipe(
+    return this.http.post<User>(this.baseUrl + 'account/register', model).pipe(
       map((user: User) => {
         if(user) {
           localStorage.setItem('user', JSON.stringify(user))
