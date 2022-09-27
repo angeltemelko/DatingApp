@@ -19,4 +19,8 @@ export class MemberService {
   getMembers(): Observable<MemberDto[]> {
     return this._http.get<MemberDto[]>(this.baseUrl + 'users')
   }
+
+  updateMember(member: MemberDto): Observable<void> {
+    return this._http.put<void>(this.baseUrl + 'update', member)
+  }
 }
