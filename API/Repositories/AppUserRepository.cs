@@ -31,11 +31,12 @@ namespace API.Repositories
             return await _context.SaveChangesAsync() > 0;
         }
 
-        public async Task<AppUser> GetUserByIdAsync(int id)
+        public async Task<AppUser> GetUserByUsernameAsync(string username)
         {
-            return await _context.Users.FindAsync(id);
+            return await _context.Users
+                .SingleOrDefaultAsync(x=> x.Username == username);
         }
-        
+
         public async Task<IEnumerable<MembersDto>> GetMembersAsync()
         {
             return await _context.Users
